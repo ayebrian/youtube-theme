@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.2
+@version      1.0.3
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -13,6 +13,10 @@
   :root {
     --my-selected-button: #1d9dff1f;
     --border-radius: 8px;
+  }
+  ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail{
+    border-radius: var(--border-radius);
+    background-color: transparent!important;
   }
   .ytp-popup {
     border-radius: var(--border-radius);
