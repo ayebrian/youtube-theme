@@ -14,6 +14,9 @@
     --my-selected-button: #1d9dff1f;
     --border-radius: 8px;
   }
+  .ytp-popup {
+    border-radius: var(--border-radius);
+  }
   ytd-button-renderer[is-paper-button] {
     border-radius: var(--border-radius) !important;
   }
@@ -157,6 +160,7 @@
   #tabsContent.tp-yt-paper-tabs > :not(#selectionBar) {
     height: 70% !important;
     margin-top: 5px;
+    padding: 0 20px !important;
   }
 
   .selection-bar.tp-yt-paper-tabs {
@@ -173,7 +177,7 @@
   #below {
     background-color: #1c1c1c;
     padding: 0 15px;
-    margin-top: 15px;
+    margin: 15px 0;
     border-radius: 20px;
   }
   /* here because too long */
