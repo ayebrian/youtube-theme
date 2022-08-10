@@ -10,3 +10,4 @@ I'm using this every day, so I'll keep updating it.
 
 ## Installation
 1. Install [Stylus](https://add0n.com/stylus.html) extension for your browser.
+2. Import the theme from [userstyles.org](https://userstyles.world/style/6049/youtube-modern-dark).
