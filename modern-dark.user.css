@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name         YouTube - Modern Dark
+@namespace    ayebrian
+@version      1.0.0
+@description  A dark theme for YouTube
+@author       ayebrian
+@homepageURL  https://github.com/ayebrian/youtube-theme
+@updateURL    https://github.com/ayebrian/youtube-theme/raw/master/modern-dark.user.css
+==/UserStyle== */
 :root {
   --my-selected-button: #1d9dff1f;
   --border-radius: 8px;
@@ -99,21 +108,14 @@ ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
 #search-icon-legacy.ytd-searchbox {
   opacity: 0;
   transition: all cubic-bezier(0, 0.79, 0.58, 1) 0.2s;
-  display: nne11 !important;
   border: none !important;
-  /*background-color: transparent!important;*/
+  /*background-color: transpa/rent!important;*/
   background-color: #181818 !important;
   position: absolute;
   right: 30px;
   width: auto;
   height: auto;
   padding: 4px;
-}
-
-#items style-scope yt-multi-page-menu-section-renderer *:last-of-type,
-#sections yt-multi-page-menu-section-renderer:last-of-type {
-  display: none !important;
-  border: none !important;
 }
 
 #sections.ytd-multi-page-menu-renderer > *.ytd-multi-page-menu-renderer {
