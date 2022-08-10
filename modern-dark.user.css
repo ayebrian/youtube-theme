@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.3
+@version      1.0.4
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -13,10 +13,23 @@
   :root {
     --my-selected-button: #1d9dff1f;
     --border-radius: 8px;
+    --new-background: var(--yt-spec-base-background); /*0f0f0f0f*/
+    --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
   }
-  ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail{
+  ytd-app {
+    display: block;
+    /*background: var(--new-background)!important; 
+    --app-drawer-content-container-background-color: var(
+      --new-background
+    ) !important; in the future*/
+  }
+  ytd-thumbnail-overlay-bottom-panel-renderer {
+    overflow: hidden;
     border-radius: var(--border-radius);
-    background-color: transparent!important;
+  }
+  ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail {
+    border-radius: var(--border-radius);
+    background-color: transparent !important;
   }
   .ytp-popup {
     border-radius: var(--border-radius);
@@ -25,7 +38,9 @@
     border-radius: var(--border-radius) !important;
   }
   yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
-    #right-arrow.yt-chip-cloud-renderer:before {
+    #right-arrow.yt-chip-cloud-renderer:before,
+  yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
+    #left-arrow.yt-chip-cloud-renderer:after {
     background: none !important;
   }
 
@@ -33,7 +48,7 @@
     #left-arrow-button.yt-chip-cloud-renderer,
   yt-chip-cloud-renderer[darker-dark-theme]
     #right-arrow-button.yt-chip-cloud-renderer {
-    background: #00000070 !important;
+    background: #1c1c1c !important;
   }
 
   #left-arrow.yt-chip-cloud-renderer,
