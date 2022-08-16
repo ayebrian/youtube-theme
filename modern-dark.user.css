@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.4
+@version      1.0.5
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -31,9 +31,9 @@
     border-radius: var(--border-radius);
     background-color: transparent !important;
   }
-  .ytp-popup {
-    border-radius: var(--border-radius);
-  }
+  .ytp-popup,
+  tp-yt-paper-item:focus:before,
+  .tp-yt-paper-item.tp-yt-paper-item:focus:before,
   ytd-button-renderer[is-paper-button] {
     border-radius: var(--border-radius) !important;
   }
@@ -169,7 +169,9 @@
     .menu-container.ytd-multi-page-menu-renderer {
     padding: 10px;
   }
-
+  paper-ripple {
+    border-radius: 35px !important;
+  }
   tp-yt-paper-tab.iron-selected.ytd-c4-tabbed-header-renderer {
     background-color: var(--my-selected-button) !important;
     border-radius: 35px !important;
