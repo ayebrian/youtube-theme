@@ -1,13 +1,13 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.5
+@version      1.0.6
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
 @preprocessor default
 @homepageURL  https://github.com/ayebrian/youtube-theme
-@updateURL    https://github.com/ayebrian/youtube-theme/raw/master/modern-dark.user.css
+@updateURL    https://raw.githubusercontent.com/ayebrian/youtube-theme/main/modern-dark.user.css
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
   :root {
