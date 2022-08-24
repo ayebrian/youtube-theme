@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.6
+@version      1.0.7
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -23,6 +23,9 @@
       --new-background
     ) !important; in the future*/
   }
+  ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] {
+    background-color: #000000b3;
+  }
   ytd-thumbnail-overlay-bottom-panel-renderer {
     overflow: hidden;
     border-radius: var(--border-radius);
@@ -34,7 +37,8 @@
   .ytp-popup,
   tp-yt-paper-item:focus:before,
   .tp-yt-paper-item.tp-yt-paper-item:focus:before,
-  ytd-button-renderer[is-paper-button] {
+  ytd-button-renderer[is-paper-button],
+  ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail {
     border-radius: var(--border-radius) !important;
   }
   yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
@@ -157,6 +161,7 @@
 
   ytd-thumbnail-overlay-time-status-renderer {
     border-radius: 4px !important;
+    margin: 8px 6px !important;
   }
 
   ytd-popup-container,
