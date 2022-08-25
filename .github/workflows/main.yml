@@ -6,10 +6,9 @@ name: Prettier of the CSS
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "dev" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "dev" ]
-
+    branches: ["main"]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -18,19 +17,19 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4.2.0
         with:
-         python-version: '3.10'
-      - run: auto.py
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - run: python3 auto.py
       - name: Prettier Action
         uses: creyD/prettier_action@v4.2
         with:
-         prettier_options: --write **/*.{css,md}
-     
+          prettier_options: --write **/*.{css,md}
+          commit_message: "Production & Prettier"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
