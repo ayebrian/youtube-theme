@@ -45,8 +45,13 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev-test-actions
+      - name: check for changes
+        run: git status
+      - name: stage changed files
+        run: git add .
+      - name: commit changed files
+        run: git commit -m "Auto updating TODO.txt"
+      - name: fetch from master
+        run: git fetch origin dev-test-actions
+      - name: push code to master
+        run: git push origin HEAD:dev-test-actions
