@@ -32,6 +32,6 @@ jobs:
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{css,md}
-          commit_message: "Test"
+          commit_message: "Production & Prettier"
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: stefanzweifel/git-auto-commit-action@v4
