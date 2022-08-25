@@ -1,5 +1,7 @@
 # YouTube Modern Theme
 
+### If you want to use the latest version, please add/replace update URL to the dev branch in your UserCSS.
+
 I'm using this every day, so I'll keep updating it.
 
 [Installation](#installation) | [Screenshots](#screenshots)
