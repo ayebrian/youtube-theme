@@ -6,10 +6,9 @@ name: Prettier of the CSS
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "dev", "dev-test-actions" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "dev", "dev-test-actions" ]
-
+    branches: ["main"]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -24,24 +23,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4.2.0
         with:
-         python-version: '3.10.4'
-      - run: auto.py
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - run: python3 auto.py
       - name: Prettier Action
         uses: creyD/prettier_action@v4.2
         with:
-         prettier_options: --write **/*.{css,md}
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
+          prettier_options: --write **/*.{css,md}
+          commit_message: "Production & Prettier"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: dev-test-actions
+      - uses: stefanzweifel/git-auto-commit-action@v4
 
-     
