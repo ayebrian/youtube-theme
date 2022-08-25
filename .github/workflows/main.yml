@@ -25,33 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
         with:
-          # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-          # This is important to fetch the changes to the previous commit
           fetch-depth: 0
-      - name: Setup Python
-        uses: actions/setup-python@v4.2.0
-        with:
-          python-version: 3.9
-      - run: auto.py
+      - run: python3 auto.py
       - name: Prettier Action
         uses: creyD/prettier_action@v4.2
         with:
           prettier_options: --write **/*.{css,md}
           commit_message: "Test"
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Add changes" -a
-      - name: check for changes
-        run: git status
-      - name: stage changed files
-        run: git add .
-      - name: commit changed files
-        run: git commit -m "Auto updating TODO.txt"
-      - name: fetch from master
-        run: git fetch origin dev-test-actions
-      - name: push code to master
-        run: git push origin HEAD:dev-test-actions
+      - uses: stefanzweifel/git-auto-commit-action@v4
