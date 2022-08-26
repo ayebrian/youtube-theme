@@ -38,7 +38,8 @@
   tp-yt-paper-item:focus:before,
   .tp-yt-paper-item.tp-yt-paper-item:focus:before,
   ytd-button-renderer[is-paper-button],
-  ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail {
+  ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail,
+  ytd-thumbnail-overlay-hover-text-renderer {
     border-radius: var(--border-radius) !important;
   }
   yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
