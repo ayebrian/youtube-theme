@@ -19,9 +19,9 @@
   ytd-app {
     display: block;
     /*background: var(--new-background)!important;
---app-drawer-content-container-background-color: var(
---new-background
-) !important; in the future*/
+    --app-drawer-content-container-background-color: var(
+    --new-background
+    ) !important; in the future*/
   }
   ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] {
     background-color: #000000b3;
