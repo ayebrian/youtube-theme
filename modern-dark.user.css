@@ -9,7 +9,7 @@
 @homepageURL  https://github.com/ayebrian/youtube-theme
 @updateURL    https://raw.githubusercontent.com/ayebrian/youtube-theme/dev/modern-dark.user.css
 ==/UserStyle== */
-@-moz-document dodev("www.youtube.com") {
+@-moz-document url("www.youtube.com") {
   :root {
     --my-selected-button: #1d9dff1f;
     --border-radius: 8px;
