@@ -1,5 +1,5 @@
 /* ==UserStyle==
-@name         YouTube - Modern Dark Alpha(DEV BRANCH)
+@name         YouTube - Modern Dark Alpha(DEV BRANCH) Alpha(DEV BRANCH)
 @namespace    ayebrian
 @version      1.0.8
 @description  A dark theme for YouTube
@@ -9,7 +9,7 @@
 @homepageURL  https://github.com/ayebrian/youtube-theme
 @updateURL    https://raw.githubusercontent.com/ayebrian/youtube-theme/dev/modern-dark.user.css
 ==/UserStyle== */
-@-moz-document domain("www.youtube.com") {
+@-moz-document dodev("www.youtube.com") {
   :root {
     --my-selected-button: #1d9dff1f;
     --border-radius: 8px;
@@ -19,9 +19,9 @@
   ytd-app {
     display: block;
     /*background: var(--new-background)!important;
-    --app-drawer-content-container-background-color: var(
-    --new-background
-    ) !important; in the future*/
+--app-drawer-content-container-background-color: var(
+--new-background
+) !important; in the future*/
   }
   ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] {
     background-color: #000000b3;
