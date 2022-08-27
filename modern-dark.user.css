@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark Alpha(DEV BRANCH)
 @namespace    ayebrian
-@version      1.0.8-alpha-1
+@version      1.0.8
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -85,6 +85,10 @@
   }
   .gsfs {
     fill: #fff;
+    color: #fff !important;
+  }
+  ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]
+    #text.ytd-thumbnail-overlay-time-status-renderer {
     color: #fff !important;
   }
 
