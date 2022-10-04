@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark Alpha(DEV BRANCH)
 @namespace    ayebrian
-@version      1.1.0-alpha-5
+@version      1.1.0-alpha-6
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -18,18 +18,21 @@
   }
   #info.ytd-video-primary-info-renderer {
     display: flex;
-    flex-direction: column!important; /*due bad location for HD and lower resolution
+    flex-direction: column !important; /*due bad location for HD and lower resolution */
   }
-	#container.ytd-masthead, #guide-content.ytd-app {
-		background: var(--darker-background);
-	}
-	yt-chip-cloud-chip-renderer[chip-style=STYLE_DEFAULT], yt-chip-cloud-chip-renderer[chip-style=STYLE_HOME_FILTER], yt-chip-cloud-chip-renderer[chip-style=STYLE_REFRESH_TO_NOVEL_CHIP], #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-		border: 0!important;
-		border-top: 0!important;
-		border-bottom: 0!important;
-	}
+  #container.ytd-masthead,
+  #guide-content.ytd-app {
+    background: var(--darker-background);
+  }
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"],
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_HOME_FILTER"],
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"],
+  #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    border: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
 
-	
   ytd-app {
     display: block;
     background: var(--darker-background) !important;
@@ -53,7 +56,10 @@
   .tp-yt-paper-item.tp-yt-paper-item:focus:before,
   ytd-button-renderer[is-paper-button],
   ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail,
-  ytd-thumbnail-overlay-hover-text-renderer {
+  ytd-thumbnail-overlay-hover-text-renderer,
+  ytd-rich-metadata-row-renderer:not([fixie])
+    #contents.ytd-rich-metadata-row-renderer
+    *.ytd-rich-metadata-row-renderer {
     border-radius: var(--border-radius) !important;
   }
   yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
