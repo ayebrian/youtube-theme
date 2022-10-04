@@ -11,7 +11,7 @@
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
   :root {
-    --my-selected-button: #1d9dff1f;
+    --my-selected-button: #233246;
     --border-radius: 8px;
     --darker-background: #000000; /*var(--yt-spec-base-background); /*#0f0f0f*/
     --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
