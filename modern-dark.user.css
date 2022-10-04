@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark Alpha(DEV BRANCH)
 @namespace    ayebrian
-@version      1.1.0-alpha-6
+@version      1.1.0-alpha-8
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -59,7 +59,7 @@
   ytd-thumbnail-overlay-hover-text-renderer,
   ytd-rich-metadata-row-renderer:not([fixie])
     #contents.ytd-rich-metadata-row-renderer
-    *.ytd-rich-metadata-row-renderer {
+    *.ytd-rich-metadata-row-renderer, ytd-thumbnail.ytd-rich-grid-slim-media:before {
     border-radius: var(--border-radius) !important;
   }
   yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
