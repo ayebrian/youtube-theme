@@ -17,6 +17,9 @@
     --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
     --bg-1-100: #1c1c1c;
   }
+  ytd-mini-guide-entry-renderer {
+    background: none !important;
+  }
   #left-arrow-button.yt-chip-cloud-renderer,
   #right-arrow-button.yt-chip-cloud-renderer {
     background: var(--darker-background);
@@ -38,6 +41,8 @@
   }
   #container.ytd-masthead,
   #guide-content.ytd-app,
+  #tabs-inner-container.ytd-c4-tabbed-header-renderer,
+  #channel-header.ytd-c4-tabbed-header-renderer,
   ytd-mini-guide-renderer {
     background: var(--darker-background) !important;
   }
