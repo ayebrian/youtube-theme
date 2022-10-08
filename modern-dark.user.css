@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark Alpha(DEV BRANCH)
 @namespace    ayebrian
-@version      1.1.0-beta-3
+@version      1.1.0-beta-4
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -16,6 +16,7 @@
     --darker-background: #000000; /*var(--yt-spec-base-background); /*#0f0f0f*/
     --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
     --bg-1-100: #1c1c1c;
+    --bg-1-200: #141414;
   }
   ytd-mini-guide-entry-renderer {
     background: none !important;
@@ -250,7 +251,7 @@
   }
 
   #below {
-    background-color: var(--bg-1-100);
+    background-color: var(--bg-1-200);
     padding: 0 15px;
     margin: 15px 0;
     border-radius: 20px;
