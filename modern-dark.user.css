@@ -20,22 +20,23 @@
     --bg-2-popups: #101010;
   }
   #container.ytd-playlist-panel-renderer {
-    border: none!important;
+    border: none !important;
   }
   .header.ytd-playlist-panel-renderer {
     border-radius: 8px 8px 0 0;
   }
-  
-.playlist-items.ytd-playlist-panel-renderer {
+
+  .playlist-items.ytd-playlist-panel-renderer {
     background-color: #0f0f0f;
-}
+    border-radius: 0 0 8px 8px;
+  }
   tp-yt-paper-item.ytd-menu-service-item-renderer:hover {
     border-radius: var(--border-radius);
     /* hover selection menu in popups*/
   }
   tp-yt-paper-listbox {
-    background: var(--bg-2-popups)!important;
-    border-radius: var(--border-radius)!important;
+    background: var(--bg-2-popups) !important;
+    border-radius: var(--border-radius) !important;
     padding: 12px;
   }
   ytd-mini-guide-entry-renderer {
@@ -99,6 +100,7 @@
   .tp-yt-paper-item.tp-yt-paper-item:focus:before,
   ytd-button-renderer[is-paper-button],
   ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail,
+  ytd-thumbnail.ytd-reel-item-renderer:before,
   ytd-thumbnail-overlay-hover-text-renderer,
   ytd-rich-metadata-row-renderer:not([fixie])
     #contents.ytd-rich-metadata-row-renderer
