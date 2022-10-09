@@ -19,6 +19,15 @@
     --bg-1-200: #141414;
     --bg-2-popups: #101010;
   }
+  #logo.ytd-primetime-promo-header-renderer > * > img.yt-img-shadow {
+    border-radius: 0 !important;
+  }
+  ytd-rich-section-renderer
+    > *
+    > #action-button.ytd-primetime-promo-panel-renderer {
+    border-radius: 8px;
+    margin-top: 8px;
+  }
   #container.ytd-playlist-panel-renderer {
     border: none !important;
   }
