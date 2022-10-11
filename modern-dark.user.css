@@ -9,7 +9,7 @@
 @homepageURL  https://github.com/ayebrian/youtube-theme
 @updateURL    https://raw.githubusercontent.com/ayebrian/youtube-theme/dev/modern-dark.user.css
 ==/UserStyle== */
-@-moz-document domain("www.youtube.com") {
+@-moz-document domain("www.youtube.com"), html[system-icons][dark], html[system-icons] [dark] {
   :root {
     --my-selected-button: #233246;
     --border-radius: 8px;
@@ -18,6 +18,19 @@
     --bg-1-100: #1c1c1c;
     --bg-1-200: #141414;
     --bg-2-popups: #101010;
+  }
+  ytd-playlist-sidebar-renderer {
+    background-color: var(--bg-2-popups) !important;
+  }
+  ytd-browse[page-subtype="playlist"]
+    ytd-two-column-browse-results-renderer.ytd-browse,
+  ytd-browse[page-subtype="show"]
+    ytd-two-column-browse-results-renderer.ytd-browse {
+    background-color: var(--darker-background);
+  }
+  ytd-multi-page-menu-renderer {
+    border: 0 !important;
+    background: var(--bg-2-popups) !important;
   }
   #logo.ytd-primetime-promo-header-renderer > * > img.yt-img-shadow {
     border-radius: 0 !important;
@@ -43,9 +56,11 @@
     border-radius: var(--border-radius);
     /* hover selection menu in popups*/
   }
+  ytd-menu-popup-renderer {
+    border-radius: var(--border-radius);
+  }
   tp-yt-paper-listbox {
     background: var(--bg-2-popups) !important;
-    border-radius: var(--border-radius) !important;
     padding: 12px;
   }
   ytd-mini-guide-entry-renderer {
@@ -56,11 +71,17 @@
     background: var(--darker-background);
   }
   yt-chip-cloud-renderer[is-dark-theme]
-    #right-arrow.yt-chip-cloud-renderer:before,
+    #right-arrow.yt-chip-cloud-renderer:before {
+    background: linear-gradient(
+      to left,
+      var(--ytd-chip-cloud-background, var(--darker-background)) 10%,
+      rgba(24, 24, 24, 0) 90%
+    );
+  }
   yt-chip-cloud-renderer[is-dark-theme]
     #left-arrow.yt-chip-cloud-renderer:after {
     background: linear-gradient(
-      to left,
+      to right,
       var(--ytd-chip-cloud-background, var(--darker-background)) 10%,
       rgba(24, 24, 24, 0) 90%
     );
@@ -249,7 +270,10 @@
   ytd-toggle-theme-compact-link-renderer {
     border-radius: 10px !important;
   }
-
+  ytd-multi-page-menu-renderer[scrollbar-rework]
+    .menu-container.ytd-multi-page-menu-renderer {
+    padding: 0px !important;
+  }
   ytd-multi-page-menu-renderer[scrollbar-rework]
     .menu-container.ytd-multi-page-menu-renderer {
     padding: 10px;
