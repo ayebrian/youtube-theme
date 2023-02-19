@@ -149,7 +149,7 @@
   ytd-searchbox[system-icons]
     #search-icon-legacy.ytd-searchbox
     yt-icon.ytd-searchbox {
-    width: 20px !important;
+    width: 24px !important;
     height: auto;
   }
 
@@ -169,7 +169,7 @@
 
   ytd-searchbox.ytd-masthead[has-input] #search-icon-legacy.ytd-searchbox {
     opacity: 1;
-    right: 36px !important;
+    right: 50px !important;
   }
 
   ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
@@ -183,7 +183,7 @@
     /*background-color: transpa/rent!important;*/
     background-color: #181818 !important;
     position: absolute;
-    right: 30px;
+    right: 45px;
     width: auto;
     height: auto;
     padding: 4px;
