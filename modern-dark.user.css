@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark Alpha(DEV BRANCH)
 @namespace    ayebrian
-@version      1.1.0-12
+@version      1.1.0-13
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -13,15 +13,14 @@
   :root {
     --my-selected-button: #3a3a3a;
     --border-radius: 8px;
+    --round20: 20px;
     --darker-background: inherit; /*var(--yt-spec-base-background); /*#0f0f0f*/
     --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
     --bg-1-100: #1c1c1c;
     --bg-1-200: #141414;
     --bg-2-popups: #101010;
   }
-  h1.ytd-watch-metadata {
-    padding-top: 10px;
-  }
+
   ytd-playlist-sidebar-renderer {
     background-color: var(--bg-2-popups) !important;
   }
@@ -231,12 +230,19 @@
     color: #fff !important;
     border-radius: var(--border-radius) !important;
   }
-
+  ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+    background-color: var(--bg-1-200);
+    padding: 15px;
+    border-radius: var(--round20);
+  }
   #below {
     background-color: var(--bg-1-200);
-    padding: 0 15px;
+    padding: 15px;
     margin: 15px 0;
-    border-radius: 20px;
+    border-radius: var(--round20);
+  }
+  ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
+    border-radius: var(--round20);
   }
   /* here because too long */
   .sbqs_c:before {
