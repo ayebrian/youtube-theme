@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.0.8
+@version      1.2.0
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -11,54 +11,91 @@
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
   :root {
-    --my-selected-button: #1d9dff1f;
+    --my-selected-button: #3a3a3a;
     --border-radius: 8px;
-    --new-background: var(--yt-spec-base-background); /*0f0f0f0f*/
+    --round20: 20px;
+    --darker-background: inherit; /*var(--yt-spec-base-background); /*#0f0f0f*/
     --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
+    --bg-1-100: #1c1c1c;
+    --bg-1-200: #141414;
+    --bg-2-popups: #101010;
   }
+  ytd-watch-flexy[rounded-info-panel] #clarify-box.ytd-watch-flexy,
+  ytd-watch-metadata.ytd-watch-flexy {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  ytd-playlist-sidebar-renderer {
+    background-color: var(--bg-2-popups) !important;
+  }
+  ytd-browse[page-subtype="playlist"]
+    ytd-two-column-browse-results-renderer.ytd-browse,
+  ytd-browse[page-subtype="show"]
+    ytd-two-column-browse-results-renderer.ytd-browse {
+    background-color: var(--darker-background);
+  }
+  ytd-multi-page-menu-renderer {
+    border: 0 !important;
+    background: var(--bg-2-popups) !important;
+  }
+  #logo.ytd-primetime-promo-header-renderer > * > img.yt-img-shadow {
+    border-radius: 0 !important;
+  }
+  ytd-rich-section-renderer
+    > *
+    > #action-button.ytd-primetime-promo-panel-renderer {
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+  #container.ytd-playlist-panel-renderer {
+    border: none !important;
+  }
+  .header.ytd-playlist-panel-renderer {
+    background-color: #0c0c0c;
+    border-radius: 8px 8px 0 0;
+  }
+  .playlist-items.ytd-playlist-panel-renderer {
+    background-color: #181818;
+    border-radius: 0 0 8px 8px;
+  }
+  tp-yt-paper-item.ytd-menu-service-item-renderer:hover {
+    border-radius: var(--border-radius);
+    /* hover selection menu in popups*/
+  }
+  ytd-menu-popup-renderer {
+    border-radius: var(--border-radius);
+  }
+  tp-yt-paper-listbox {
+    background: var(--bg-2-popups) !important;
+    padding: 12px;
+  }
+  ytd-mini-guide-entry-renderer {
+    background: none !important;
+  }
+  #info.ytd-video-primary-info-renderer {
+    display: flex;
+    flex-direction: column !important; /*due bad location for HD and lower resolution */
+    align-items: flex-start !important;
+  }
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"],
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_HOME_FILTER"],
+  yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"],
+  #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    border: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+  }
+
   ytd-app {
     display: block;
-    /*background: var(--new-background)!important;
---app-drawer-content-container-background-color: var(
---new-background
-) !important; in the future*/
+    background: var(--darker-background) !important;
+    --app-drawer-content-container-background-color: var(
+      --darker-background
+    ) !important;
   }
   ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] {
     background-color: #000000b3;
-  }
-  ytd-thumbnail-overlay-bottom-panel-renderer {
-    overflow: hidden;
-    border-radius: var(--border-radius);
-  }
-  ytd-playlist-thumbnail #thumbnail.ytd-playlist-thumbnail {
-    border-radius: var(--border-radius);
-    background-color: transparent !important;
-  }
-  .ytp-popup,
-  tp-yt-paper-item:focus:before,
-  .tp-yt-paper-item.tp-yt-paper-item:focus:before,
-  ytd-button-renderer[is-paper-button],
-  ytd-thumbnail[is-original-aspect-ratio] #thumbnail.ytd-thumbnail,
-  ytd-thumbnail-overlay-hover-text-renderer {
-    border-radius: var(--border-radius) !important;
-  }
-  yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
-    #right-arrow.yt-chip-cloud-renderer:before,
-  yt-chip-cloud-renderer[darker-dark-theme][is-dark-theme]
-    #left-arrow.yt-chip-cloud-renderer:after {
-    background: none !important;
-  }
-
-  yt-chip-cloud-renderer[darker-dark-theme]
-    #left-arrow-button.yt-chip-cloud-renderer,
-  yt-chip-cloud-renderer[darker-dark-theme]
-    #right-arrow-button.yt-chip-cloud-renderer {
-    background: #1c1c1c !important;
-  }
-
-  #left-arrow.yt-chip-cloud-renderer,
-  #right-arrow.yt-chip-cloud-renderer {
-    height: 40px !important;
   }
 
   .sbfl_a {
@@ -112,7 +149,7 @@
   ytd-searchbox[system-icons]
     #search-icon-legacy.ytd-searchbox
     yt-icon.ytd-searchbox {
-    width: 20px !important;
+    width: 24px !important;
     height: auto;
   }
 
@@ -132,7 +169,7 @@
 
   ytd-searchbox.ytd-masthead[has-input] #search-icon-legacy.ytd-searchbox {
     opacity: 1;
-    right: 36px !important;
+    right: 50px !important;
   }
 
   ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
@@ -146,7 +183,7 @@
     /*background-color: transpa/rent!important;*/
     background-color: #181818 !important;
     position: absolute;
-    right: 30px;
+    right: 45px;
     width: auto;
     height: auto;
     padding: 4px;
@@ -164,17 +201,10 @@
     border-radius: 10px !important;
   }
 
-  ytd-thumbnail-overlay-time-status-renderer {
-    border-radius: 4px !important;
-    margin: 8px 6px !important;
+  ytd-multi-page-menu-renderer[scrollbar-rework]
+    .menu-container.ytd-multi-page-menu-renderer {
+    padding: 5px !important;
   }
-
-  ytd-popup-container,
-  ytd-compact-link-renderer,
-  ytd-toggle-theme-compact-link-renderer {
-    border-radius: 10px !important;
-  }
-
   ytd-multi-page-menu-renderer[scrollbar-rework]
     .menu-container.ytd-multi-page-menu-renderer {
     padding: 10px;
@@ -191,7 +221,7 @@
 
   #tabsContent.tp-yt-paper-tabs > :not(#selectionBar) {
     height: 70% !important;
-    margin-top: 5px;
+    margin-top: 7px;
     padding: 0 20px !important;
   }
 
@@ -205,12 +235,19 @@
     color: #fff !important;
     border-radius: var(--border-radius) !important;
   }
-
+  ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+    background-color: var(--bg-1-200);
+    padding: 15px;
+    border-radius: var(--round20);
+  }
   #below {
-    background-color: #1c1c1c;
-    padding: 0 15px;
+    background-color: var(--bg-1-200);
+    padding: 15px;
     margin: 15px 0;
-    border-radius: 20px;
+    border-radius: var(--round20);
+  }
+  ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
+    border-radius: var(--round20);
   }
   /* here because too long */
   .sbqs_c:before {
