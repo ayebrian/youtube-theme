@@ -17,4 +17,4 @@ I'm using this every day, so I'll keep updating it.
 
 ![Video](images/video.png)
 
-![Search](images/search.png)
+![Community](images/compare.png)

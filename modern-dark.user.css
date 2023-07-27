@@ -1,257 +1,295 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.2.0
+@version      1.3.0
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
-@preprocessor default
+@preprocessor stylus
 @homepageURL  https://github.com/ayebrian/youtube-theme
 @updateURL    https://raw.githubusercontent.com/ayebrian/youtube-theme/main/modern-dark.user.css
+
+@var checkbox RNDPLR "Rounded player" 0
+@var checkbox VideoInfoStyle "Video info styling" 1
+
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
-  :root {
-    --my-selected-button: #3a3a3a;
-    --border-radius: 8px;
-    --round20: 20px;
-    --darker-background: inherit; /*var(--yt-spec-base-background); /*#0f0f0f*/
-    --yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
-    --bg-1-100: #1c1c1c;
-    --bg-1-200: #141414;
-    --bg-2-popups: #101010;
-  }
-  ytd-watch-flexy[rounded-info-panel] #clarify-box.ytd-watch-flexy,
-  ytd-watch-metadata.ytd-watch-flexy {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+	:root {
+		--my-selected-button: #3a3a3a;
+		--border-radius: 8px;
+		--round20: 20px;
+		--darker-background: inherit;
+		/*var(--yt-spec-base-background); /*#0f0f0f*/
+		--yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
+		--bg-1-100: #1c1c1c;
+		--bg-1-200: #141414;
+		--bg-2-popups: #101010;
+	}
 
-  ytd-playlist-sidebar-renderer {
-    background-color: var(--bg-2-popups) !important;
-  }
-  ytd-browse[page-subtype="playlist"]
-    ytd-two-column-browse-results-renderer.ytd-browse,
-  ytd-browse[page-subtype="show"]
-    ytd-two-column-browse-results-renderer.ytd-browse {
-    background-color: var(--darker-background);
-  }
-  ytd-multi-page-menu-renderer {
-    border: 0 !important;
-    background: var(--bg-2-popups) !important;
-  }
-  #logo.ytd-primetime-promo-header-renderer > * > img.yt-img-shadow {
-    border-radius: 0 !important;
-  }
-  ytd-rich-section-renderer
-    > *
-    > #action-button.ytd-primetime-promo-panel-renderer {
-    border-radius: 8px;
-    margin-top: 8px;
-  }
-  #container.ytd-playlist-panel-renderer {
-    border: none !important;
-  }
-  .header.ytd-playlist-panel-renderer {
-    background-color: #0c0c0c;
-    border-radius: 8px 8px 0 0;
-  }
-  .playlist-items.ytd-playlist-panel-renderer {
-    background-color: #181818;
-    border-radius: 0 0 8px 8px;
-  }
-  tp-yt-paper-item.ytd-menu-service-item-renderer:hover {
-    border-radius: var(--border-radius);
-    /* hover selection menu in popups*/
-  }
-  ytd-menu-popup-renderer {
-    border-radius: var(--border-radius);
-  }
-  tp-yt-paper-listbox {
-    background: var(--bg-2-popups) !important;
-    padding: 12px;
-  }
-  ytd-mini-guide-entry-renderer {
-    background: none !important;
-  }
-  #info.ytd-video-primary-info-renderer {
-    display: flex;
-    flex-direction: column !important; /*due bad location for HD and lower resolution */
-    align-items: flex-start !important;
-  }
-  yt-chip-cloud-chip-renderer[chip-style="STYLE_DEFAULT"],
-  yt-chip-cloud-chip-renderer[chip-style="STYLE_HOME_FILTER"],
-  yt-chip-cloud-chip-renderer[chip-style="STYLE_REFRESH_TO_NOVEL_CHIP"],
-  #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
-    border: 0 !important;
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-  }
+	html[dark],
+	[dark] {
+		color-scheme: dark;
+	}
 
-  ytd-app {
-    display: block;
-    background: var(--darker-background) !important;
-    --app-drawer-content-container-background-color: var(
-      --darker-background
-    ) !important;
+	if (RNDPLR == 1) {
+		.html5-video-player {
+			border-radius: 20px;
+		}
+	}
+  if (VideoInfoStyle == 0) {
+   #below {
+    background-color: unset!important;
+    padding: 0!important;
+   }
   }
-  ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] {
-    background-color: #000000b3;
-  }
+	ytd-watch-flexy[rounded-info-panel] #clarify-box.ytd-watch-flexy,
+	ytd-watch-metadata.ytd-watch-flexy {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+	}
 
-  .sbfl_a {
-    display: none !important;
-  }
+	ytd-playlist-sidebar-renderer {
+		background-color: var(--bg-2-popups) !important;
+	}
 
-  .sbsb_a {
-    margin-top: 5px;
-    background: #181818 !important;
-    border-radius: 13px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-    -webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-  }
+	ytd-browse[page-subtype = "playlist"] ytd-two-column-browse-results-renderer.ytd-browse,
+	ytd-browse[page-subtype = "show"] ytd-two-column-browse-results-renderer.ytd-browse {
+		background-color: var(--darker-background);
+	}
 
-  .sbdd_b {
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-  }
+	ytd-multi-page-menu-renderer {
+		border: 0 !important;
+		background: var(--bg-2-popups) !important;
+	}
 
-  .sbsb_d {
-    background: #ffffff0f !important;
-  }
-  .gsfs {
-    fill: #fff;
-    color: #fff !important;
-  }
-  ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]
-    #text.ytd-thumbnail-overlay-time-status-renderer {
-    color: #fff !important;
-  }
+	#logo.ytd-primetime-promo-header-renderer > * > img.yt-img-shadow {
+		border-radius: 0 !important;
+	}
 
-  #search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+	ytd-rich-section-renderer > * > #action-button.ytd-primetime-promo-panel-renderer {
+		border-radius: 8px;
+		margin-top: 8px;
+	}
 
-  ytd-thumbnail-overlay-resume-playback-renderer,
-  #progress.ytd-thumbnail-overlay-resume-playback-renderer {
-    border-radius: 15px;
-  }
+	#container.ytd-playlist-panel-renderer {
+		border: none !important;
+	}
 
-  ytd-searchbox.ytd-masthead {
-    flex-direction: row;
-    align-items: center;
-    position: relative !important;
-  }
+	.header.ytd-playlist-panel-renderer {
+		background-color: #0c0c0c;
+		border-radius: 8px 8px 0 0;
+	}
 
-  ytd-searchbox[system-icons]
-    #search-icon-legacy.ytd-searchbox
-    yt-icon.ytd-searchbox {
-    width: 24px !important;
-    height: auto;
-  }
+	.playlist-items.ytd-playlist-panel-renderer {
+		background-color: #181818;
+		border-radius: 0 0 8px 8px;
+	}
 
-  #container.ytd-searchbox {
-    margin-left: 0 !important;
-    background: #181818 !important;
-    border: none !important;
-    border-radius: 25px !important;
-    box-shadow: none !important;
-    padding: 10px 10px 10px 25px !important;
-  }
+	tp-yt-paper-item.ytd-menu-service-item-renderer:hover {
+		border-radius: var(--border-radius);
+		/* hover selection menu in popups*/
+	}
 
-  #search-icon.ytd-searchbox {
-    display: none;
-    transition: all ease-in-out 0.2s;
-  }
+	ytd-menu-popup-renderer {
+		border-radius: var(--border-radius);
+	}
 
-  ytd-searchbox.ytd-masthead[has-input] #search-icon-legacy.ytd-searchbox {
-    opacity: 1;
-    right: 50px !important;
-  }
+	tp-yt-paper-listbox {
+		background: var(--bg-2-popups) !important;
+		padding: 12px;
+	}
 
-  ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
-    opacity: 0;
-  }
+	ytd-mini-guide-entry-renderer {
+		background: none !important;
+	}
 
-  #search-icon-legacy.ytd-searchbox {
-    opacity: 0;
-    transition: all cubic-bezier(0, 0.79, 0.58, 1) 0.2s;
-    border: none !important;
-    /*background-color: transpa/rent!important;*/
-    background-color: #181818 !important;
-    position: absolute;
-    right: 45px;
-    width: auto;
-    height: auto;
-    padding: 4px;
-  }
+	#info.ytd-video-primary-info-renderer {
+		display: flex;
+		flex-direction: column !important;
+		/*due bad location for HD and lower resolution */
+		align-items: flex-start !important;
+	}
 
-  #sections.ytd-multi-page-menu-renderer > *.ytd-multi-page-menu-renderer {
-    padding: 6px 0 !important;
-  }
+	yt-chip-cloud-chip-renderer[chip-style = "STYLE_DEFAULT"],
+	yt-chip-cloud-chip-renderer[chip-style = "STYLE_HOME_FILTER"],
+	yt-chip-cloud-chip-renderer[chip-style = "STYLE_REFRESH_TO_NOVEL_CHIP"],
+	#chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+		border: 0 !important;
+		border-top: 0 !important;
+		border-bottom: 0 !important;
+	}
 
-  ytd-thumbnail.ytd-rich-grid-media:before {
-    background-color: transparent !important;
-  }
+	ytd-app {
+		display: block;
+		background: var(--darker-background) !important;
+		--app-drawer-content-container-background-color: var( --darker-background) !important;
+	}
 
-  img.yt-img-shadow {
-    border-radius: 10px !important;
-  }
+	ytd-thumbnail-overlay-time-status-renderer[overlay-style = "SHORTS"] {
+		background-color: #000000b3;
+	}
 
-  ytd-multi-page-menu-renderer[scrollbar-rework]
-    .menu-container.ytd-multi-page-menu-renderer {
-    padding: 5px !important;
-  }
-  ytd-multi-page-menu-renderer[scrollbar-rework]
-    .menu-container.ytd-multi-page-menu-renderer {
-    padding: 10px;
-  }
-  paper-ripple {
-    border-radius: 35px !important;
-  }
-  tp-yt-paper-tab.iron-selected.ytd-c4-tabbed-header-renderer {
-    background-color: var(--my-selected-button) !important;
-    border-radius: 35px !important;
-    margin-top: 5px;
-    padding: 0 20px;
-  }
+	.sbfl_a {
+		display: none !important;
+	}
 
-  #tabsContent.tp-yt-paper-tabs > :not(#selectionBar) {
-    height: 70% !important;
-    margin-top: 7px;
-    padding: 0 20px !important;
-  }
+	.sbsb_a {
+		margin-top: 5px;
+		background: #181818 !important;
+		border-radius: 13px;
+		box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+		-webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+	}
 
-  .selection-bar.tp-yt-paper-tabs {
-    display: none !important;
-  }
+	.sbdd_b {
+		border: none !important;
+		background: transparent !important;
+		box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+	}
 
-  ytd-button-renderer.style-primary[is-paper-button],
-  tp-yt-paper-button.ytd-subscribe-button-renderer {
-    background-color: #ffffff14 !important;
-    color: #fff !important;
-    border-radius: var(--border-radius) !important;
-  }
-  ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
-    background-color: var(--bg-1-200);
-    padding: 15px;
-    border-radius: var(--round20);
-  }
-  #below {
-    background-color: var(--bg-1-200);
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: var(--round20);
-  }
-  ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
-    border-radius: var(--round20);
-  }
-  /* here because too long */
-  .sbqs_c:before {
-    background: no-repeat
-      url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC4wMjY4IDkuMDI5MTdMMTMuNzkyNiAxMi43OTUxQzEzLjkyNSAxMi45Mjc1IDEzLjk5OTMgMTMuMTA3MiAxMy45OTkzIDEzLjI5NDRDMTMuOTk5MiAxMy40ODE3IDEzLjkyNDggMTMuNjYxMiAxMy43OTIzIDEzLjc5MzZDMTMuNjU5OCAxMy45MjYgMTMuNDgwMiAxNC4wMDAzIDEzLjI5MyAxNC4wMDAyQzEzLjEwNTcgMTQuMDAwMiAxMi45MjYyIDEzLjkyNTcgMTIuNzkzOCAxMy43OTMzTDkuMDI3OTcgMTAuMDI3M0M3LjkwMjIyIDEwLjg5OTMgNi40ODY1OCAxMS4zMDk2IDUuMDY5MDQgMTEuMTc0OUMzLjY1MTUgMTEuMDQwMSAyLjMzODU0IDEwLjM3MDQgMS4zOTcyNiA5LjMwMTg5QzAuNDU1OTggOC4yMzM0MiAtMC4wNDI5MTYgNi44NDY0OSAwLjAwMjA2NDg4IDUuNDIzMjNDMC4wNDcwNDU4IDMuOTk5OTcgMC42MzI1MjUgMi42NDczMSAxLjYzOTQgMS42NDA0MUMyLjY0NjI3IDAuNjMzNTE3IDMuOTk4OSAwLjA0ODAyMzUgNS40MjIxMiAwLjAwMzA0MTUxQzYuODQ1MzQgLTAuMDQxOTQwNSA4LjIzMjI0IDAuNDU2OTY4IDkuMzAwNjggMS4zOTgyN0MxMC4zNjkxIDIuMzM5NTggMTEuMDM4OSAzLjY1MjU3IDExLjE3MzYgNS4wNzAxNEMxMS4zMDg0IDYuNDg3NzIgMTAuODk4MSA3LjkwMzM5IDEwLjAyNjEgOS4wMjkxN0gxMC4wMjY4Wk01LjU5OTUzIDkuNzk5ODVDNi43MTMzOSA5Ljc5OTg1IDcuNzgxNjIgOS4zNTczNiA4LjU2OTI0IDguNTY5NzNDOS4zNTY4NSA3Ljc4MjA5IDkuNzk5MzMgNi43MTM4MyA5Ljc5OTMzIDUuNTk5OTRDOS43OTkzMyA0LjQ4NjA2IDkuMzU2ODUgMy40MTc4IDguNTY5MjQgMi42MzAxNkM3Ljc4MTYyIDEuODQyNTIgNi43MTMzOSAxLjQwMDAzIDUuNTk5NTMgMS40MDAwM0M0LjQ4NTY3IDEuNDAwMDMgMy40MTc0MyAxLjg0MjUyIDIuNjI5ODIgMi42MzAxNkMxLjg0MjIgMy40MTc4IDEuMzk5NzIgNC40ODYwNiAxLjM5OTcyIDUuNTk5OTRDMS4zOTk3MiA2LjcxMzgzIDEuODQyMiA3Ljc4MjA5IDIuNjI5ODIgOC41Njk3M0MzLjQxNzQzIDkuMzU3MzYgNC40ODU2NyA5Ljc5OTg1IDUuNTk5NTMgOS43OTk4NVY5Ljc5OTg1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==");
-  }
+	.sbsb_d {
+		background: #ffffff0f !important;
+	}
+
+	.gsfs {
+		fill: #fff;
+		color: #fff !important;
+	}
+
+	ytd-thumbnail-overlay-time-status-renderer[overlay-style = "SHORTS"] #text.ytd-thumbnail-overlay-time-status-renderer {
+		color: #fff !important;
+	}
+
+	#search {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	ytd-thumbnail-overlay-resume-playback-renderer,
+	#progress.ytd-thumbnail-overlay-resume-playback-renderer {
+		border-radius: 15px;
+	}
+
+	ytd-searchbox.ytd-masthead {
+		flex-direction: row;
+		align-items: center;
+		position: relative !important;
+	}
+
+	ytd-searchbox[system-icons] #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
+		width: 24px !important;
+		height: auto;
+	}
+
+	#container.ytd-searchbox {
+		margin-left: 0 !important;
+		background: #181818 !important;
+		border: none !important;
+		border-radius: 25px !important;
+		box-shadow: none !important;
+		padding: 10px 10px 10px 25px !important;
+	}
+
+	#search-icon.ytd-searchbox {
+		display: none;
+		transition: all ease-in-out 0.2s;
+	}
+
+	ytd-searchbox.ytd-masthead[has-input] #search-icon-legacy.ytd-searchbox {
+		opacity: 1;
+		right: 50px !important;
+	}
+
+	ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
+		opacity: 0;
+	}
+
+	#search-icon-legacy.ytd-searchbox {
+		opacity: 0;
+		transition: all cubic-bezier(0, 0.79, 0.58, 1) 0.2s;
+		border: none !important;
+		/*background-color: transpa/rent!important;*/
+		background-color: #181818 !important;
+		position: absolute;
+		right: 45px;
+		width: auto;
+		height: auto;
+		padding: 4px;
+	}
+
+	#sections.ytd-multi-page-menu-renderer > *.ytd-multi-page-menu-renderer {
+		padding: 6px 0 !important;
+	}
+
+	ytd-thumbnail.ytd-rich-grid-media:before {
+		background-color: transparent !important;
+	}
+
+	img.yt-img-shadow {
+		border-radius: 10px !important;
+	}
+
+	ytd-multi-page-menu-renderer[scrollbar-rework] .menu-container.ytd-multi-page-menu-renderer {
+		padding: 5px !important;
+	}
+
+	ytd-multi-page-menu-renderer[scrollbar-rework] .menu-container.ytd-multi-page-menu-renderer {
+		padding: 10px;
+	}
+
+	paper-ripple {
+		border-radius: 35px !important;
+	}
+
+	tp-yt-paper-tab.iron-selected.ytd-c4-tabbed-header-renderer {
+		background-color: var(--my-selected-button) !important;
+		border-radius: 35px !important;
+		margin-top: 5px;
+		padding: 0 20px;
+	}
+
+	#tabsContent.tp-yt-paper-tabs > :not(#selectionBar) {
+		height: 70% !important;
+		margin-top: 7px;
+		padding: 0 20px !important;
+	}
+
+	.selection-bar.tp-yt-paper-tabs {
+		display: none !important;
+	}
+
+	ytd-button-renderer.style-primary[is-paper-button],
+	tp-yt-paper-button.ytd-subscribe-button-renderer {
+		background-color: #ffffff14 !important;
+		color: #fff !important;
+		border-radius: var(--border-radius) !important;
+	}
+
+	ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
+		background-color: var(--bg-1-200);
+		padding: 15px;
+		border-radius: var(--round20);
+	}
+
+	#below {
+		background-color: var(--bg-1-200);
+		padding: 15px;
+		margin: 15px 0;
+		border-radius: var(--round20);
+	}
+
+	ytd-watch-flexy[flexy] #player-container-inner.ytd-watch-flexy {
+		border-radius: var(--round20);
+	}
+
+	ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
+		border: 1px solid var(--yt-spec-10-percent-layer);
+	}
+
+	/* here because too long */
+	.sbqs_c:before {
+		background: no-repeat url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC4wMjY4IDkuMDI5MTdMMTMuNzkyNiAxMi43OTUxQzEzLjkyNSAxMi45Mjc1IDEzLjk5OTMgMTMuMTA3MiAxMy45OTkzIDEzLjI5NDRDMTMuOTk5MiAxMy40ODE3IDEzLjkyNDggMTMuNjYxMiAxMy43OTIzIDEzLjc5MzZDMTMuNjU5OCAxMy45MjYgMTMuNDgwMiAxNC4wMDAzIDEzLjI5MyAxNC4wMDAyQzEzLjEwNTcgMTQuMDAwMiAxMi45MjYyIDEzLjkyNTcgMTIuNzkzOCAxMy43OTMzTDkuMDI3OTcgMTAuMDI3M0M3LjkwMjIyIDEwLjg5OTMgNi40ODY1OCAxMS4zMDk2IDUuMDY5MDQgMTEuMTc0OUMzLjY1MTUgMTEuMDQwMSAyLjMzODU0IDEwLjM3MDQgMS4zOTcyNiA5LjMwMTg5QzAuNDU1OTggOC4yMzM0MiAtMC4wNDI5MTYgNi44NDY0OSAwLjAwMjA2NDg4IDUuNDIzMjNDMC4wNDcwNDU4IDMuOTk5OTcgMC42MzI1MjUgMi42NDczMSAxLjYzOTQgMS42NDA0MUMyLjY0NjI3IDAuNjMzNTE3IDMuOTk4OSAwLjA0ODAyMzUgNS40MjIxMiAwLjAwMzA0MTUxQzYuODQ1MzQgLTAuMDQxOTQwNSA4LjIzMjI0IDAuNDU2OTY4IDkuMzAwNjggMS4zOTgyN0MxMC4zNjkxIDIuMzM5NTggMTEuMDM4OSAzLjY1MjU3IDExLjE3MzYgNS4wNzAxNEMxMS4zMDg0IDYuNDg3NzIgMTAuODk4MSA3LjkwMzM5IDEwLjAyNjEgOS4wMjkxN0gxMC4wMjY4Wk01LjU5OTUzIDkuNzk5ODVDNi43MTMzOSA5Ljc5OTg1IDcuNzgxNjIgOS4zNTczNiA4LjU2OTI0IDguNTY5NzNDOS4zNTY4NSA3Ljc4MjA5IDkuNzk5MzMgNi43MTM4MyA5Ljc5OTMzIDUuNTk5OTRDOS43OTkzMyA0LjQ4NjA2IDkuMzU2ODUgMy40MTc4IDguNTY5MjQgMi42MzAxNkM3Ljc4MTYyIDEuODQyNTIgNi43MTMzOSAxLjQwMDAzIDUuNTk5NTMgMS40MDAwM0M0LjQ4NTY3IDEuNDAwMDMgMy40MTc0MyAxLjg0MjUyIDIuNjI5ODIgMi42MzAxNkMxLjg0MjIgMy40MTc4IDEuMzk5NzIgNC40ODYwNiAxLjM5OTcyIDUuNTk5OTRDMS4zOTk3MiA2LjcxMzgzIDEuODQyMiA3Ljc4MjA5IDIuNjI5ODIgOC41Njk3M0MzLjQxNzQzIDkuMzU3MzYgNC40ODU2NyA5Ljc5OTg1IDUuNTk5NTMgOS43OTk4NVY5Ljc5OTg1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==");
+	}
 }
