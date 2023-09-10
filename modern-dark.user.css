@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.3.0
+@version      1.3.1
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -131,14 +131,6 @@
 
 	.sbfl_a {
 		display: none !important;
-	}
-
-	.sbsb_a {
-		margin-top: 5px;
-		background: #181818 !important;
-		border-radius: 13px;
-		box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
-		-webkit-box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
 	}
 
 	.sbdd_b {
@@ -288,8 +280,8 @@
 		border: 1px solid var(--yt-spec-10-percent-layer);
 	}
 
-	/* here because too long */
-	.sbqs_c:before {
-		background: no-repeat url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMC4wMjY4IDkuMDI5MTdMMTMuNzkyNiAxMi43OTUxQzEzLjkyNSAxMi45Mjc1IDEzLjk5OTMgMTMuMTA3MiAxMy45OTkzIDEzLjI5NDRDMTMuOTk5MiAxMy40ODE3IDEzLjkyNDggMTMuNjYxMiAxMy43OTIzIDEzLjc5MzZDMTMuNjU5OCAxMy45MjYgMTMuNDgwMiAxNC4wMDAzIDEzLjI5MyAxNC4wMDAyQzEzLjEwNTcgMTQuMDAwMiAxMi45MjYyIDEzLjkyNTcgMTIuNzkzOCAxMy43OTMzTDkuMDI3OTcgMTAuMDI3M0M3LjkwMjIyIDEwLjg5OTMgNi40ODY1OCAxMS4zMDk2IDUuMDY5MDQgMTEuMTc0OUMzLjY1MTUgMTEuMDQwMSAyLjMzODU0IDEwLjM3MDQgMS4zOTcyNiA5LjMwMTg5QzAuNDU1OTggOC4yMzM0MiAtMC4wNDI5MTYgNi44NDY0OSAwLjAwMjA2NDg4IDUuNDIzMjNDMC4wNDcwNDU4IDMuOTk5OTcgMC42MzI1MjUgMi42NDczMSAxLjYzOTQgMS42NDA0MUMyLjY0NjI3IDAuNjMzNTE3IDMuOTk4OSAwLjA0ODAyMzUgNS40MjIxMiAwLjAwMzA0MTUxQzYuODQ1MzQgLTAuMDQxOTQwNSA4LjIzMjI0IDAuNDU2OTY4IDkuMzAwNjggMS4zOTgyN0MxMC4zNjkxIDIuMzM5NTggMTEuMDM4OSAzLjY1MjU3IDExLjE3MzYgNS4wNzAxNEMxMS4zMDg0IDYuNDg3NzIgMTAuODk4MSA3LjkwMzM5IDEwLjAyNjEgOS4wMjkxN0gxMC4wMjY4Wk01LjU5OTUzIDkuNzk5ODVDNi43MTMzOSA5Ljc5OTg1IDcuNzgxNjIgOS4zNTczNiA4LjU2OTI0IDguNTY5NzNDOS4zNTY4NSA3Ljc4MjA5IDkuNzk5MzMgNi43MTM4MyA5Ljc5OTMzIDUuNTk5OTRDOS43OTkzMyA0LjQ4NjA2IDkuMzU2ODUgMy40MTc4IDguNTY5MjQgMi42MzAxNkM3Ljc4MTYyIDEuODQyNTIgNi43MTMzOSAxLjQwMDAzIDUuNTk5NTMgMS40MDAwM0M0LjQ4NTY3IDEuNDAwMDMgMy40MTc0MyAxLjg0MjUyIDIuNjI5ODIgMi42MzAxNkMxLjg0MjIgMy40MTc4IDEuMzk5NzIgNC40ODYwNiAxLjM5OTcyIDUuNTk5OTRDMS4zOTk3MiA2LjcxMzgzIDEuODQyMiA3Ljc4MjA5IDIuNjI5ODIgOC41Njk3M0MzLjQxNzQzIDkuMzU3MzYgNC40ODU2NyA5Ljc5OTg1IDUuNTk5NTMgOS43OTk4NVY5Ljc5OTg1WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==");
-	}
+	iframe.gstl_50.sbdd_c {
+		display: none;
+	  } /* hide white iframe in search results */
+
 }
