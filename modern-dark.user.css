@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.3.1
+@version      1.3.2
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -24,6 +24,7 @@
 		--bg-1-100: #1c1c1c;
 		--bg-1-200: #141414;
 		--bg-2-popups: #101010;
+		--search-bg: #272727;
 	}
 
 	html[dark],
@@ -177,7 +178,7 @@
 
 	#container.ytd-searchbox {
 		margin-left: 0 !important;
-		background: #181818 !important;
+		background: var(--search-bg) !important;
 		border: none !important;
 		border-radius: 25px !important;
 		box-shadow: none !important;
