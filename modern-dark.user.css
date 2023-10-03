@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.3.4
+@version      1.3.5
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -27,6 +27,7 @@
 		--bg-1-200: #141414;
 		--bg-2-popups: #101010;
 		--search-bg: #272727;
+		--blur-30: blur(50px);
 	}
 
 	html[dark],
@@ -46,9 +47,14 @@
    }
   }
   if (Blur == 1) {
-	ytd-multi-page-menu-renderer {
-	  backdrop-filter: blur(30px)!important;
+	 
+	ytd-multi-page-menu-renderer[menu-style=multi-page-menu-style-type-system] {
+	  backdrop-filter: var(--blur-30) contrast(0.5)!important;
 	  background: #000000c4 !important;
+	}
+	html[dark] .sbsb_a {
+	background: #1c1c1cd9;
+    backdrop-filter: var(--blur-30) contrast(1.5);
 	}
   }
   if (RedesignSearchResults == 1) {
