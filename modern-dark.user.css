@@ -187,10 +187,6 @@
 		align-items: center;
 	}
 
-	ytd-thumbnail-overlay-resume-playback-renderer,
-	#progress.ytd-thumbnail-overlay-resume-playback-renderer {
-		border-radius: 15px;
-	}
 
 	ytd-searchbox.ytd-masthead {
 		flex-direction: row;
@@ -250,9 +246,6 @@
 		background-color: transparent !important;
 	}
 
-	img.yt-img-shadow {
-		border-radius: 10px !important;
-	}
 
 	ytd-multi-page-menu-renderer[scrollbar-rework] .menu-container.ytd-multi-page-menu-renderer {
 		padding: 5px !important;
