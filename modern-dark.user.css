@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.3.6
+@version      1.3.7
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -18,16 +18,16 @@
 @-moz-document domain("www.youtube.com") {
 	:root {
 		--my-selected-button: #3a3a3a;
-		--border-radius: 8px;
+		--border-radius: 10px;
 		--round20: 20px;
 		--darker-background: inherit;
 		/*var(--yt-spec-base-background); /*#0f0f0f*/
-		--yt-spec-brand-background-primary: rgb(16 16 16 / 98%) !important;
 		--bg-1-100: #1c1c1c;
 		--bg-1-200: #141414;
 		--bg-2-popups: #101010;
+		--bg-90-gray: #1c1c1cd9; /* For blur */
 		--search-bg: #272727;
-		--blur-30: blur(50px);
+		--blur-30: blur(50px); /* Blur for UI elements */
 	}
 
 	html[dark],
@@ -52,10 +52,11 @@
 	  backdrop-filter: var(--blur-30) contrast(0.5)!important;
 	  background: #000000c4 !important;
 	}
-	html[dark] .sbsb_a {
-	background: #1c1c1cd9;
+	html[dark] .sbsb_a, ytd-menu-popup-renderer {
+	background: var(--bg-90-gray) !important;
     backdrop-filter: var(--blur-30) contrast(1.5);
 	}
+	
   }
   if (RedesignSearchResults == 1) {
 	.sbsb_a {
@@ -119,12 +120,24 @@
 	}
 
 	ytd-menu-popup-renderer {
+		background: var(--search-bg);
 		border-radius: var(--border-radius);
+		box-shadow: 0 4px 32px 0 rgb(0 0 0 / 44%);
 	}
-
+	tp-yt-paper-dialog > *:first-child, tp-yt-paper-dialog > *:last-child {
+		margin: 0; /* Remove useless ugly margins */
+	}
+	#button-container.ytd-about-channel-renderer {
+		padding-bottom: 12px; /* Fix missing padding for the share button by the style above */
+	}
+	#header.ytd-engagement-panel-title-header-renderer {
+		margin-top: -10px; /* Fix ugly position */
+	}
 	tp-yt-paper-listbox {
-		background: var(--bg-2-popups) !important;
-		padding: 12px;
+		padding: 10px;
+	}
+	tp-yt-paper-item.style-scope.ytd-menu-service-item-renderer, tp-yt-paper-item#primary-entry {
+		border-radius: calc(var(--border-radius) / 2);
 	}
 
 	ytd-mini-guide-entry-renderer {
