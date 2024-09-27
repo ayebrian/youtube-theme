@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.4.0
+@version      1.5.0
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -12,14 +12,40 @@
 @var checkbox RedesignSearchResults "Search results redesign" 1
 @var checkbox Blur "Blur for all elements" 1
 @var checkbox fakepremium "Fake Premium" 0
+@var checkbox Enablepip "Enable hidden PiP" 0
+@var checkbox DisableSecondaryColumn "Zen mode (Video Player only)" 0
 
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
+
 	:root {
 		--my-selected-button: #3a3a3a;
 		--border-radius: 10px;
 		--round20: 20px;
 		--darker-background: inherit;
+		--blur-30: blur(60px);
+		/* Blur for UI elements */
+		--bg-1-100: #767676;
+		--bg-1-200: #f4f4f4;
+		--bg-2-popups: #fff;
+		--bg-90-gray: #e9e9e9d9;
+		/* For blur */
+		--search-bg: #8a8a8a1f;
+		--gray: #272727;
+		/* moved from search-bg */
+		--blur-primary-bg: rgba(255, 255, 255, .9);
+		--shadow-popup-renderer: 0 4px 32px 0 rgba(89, 89, 89, .44);
+		--search-item-hover: #0000000f;
+		--playlist-panel-bg: #e8e8e8;
+		--playlist-panel-bg-alt: #f5f5f5;
+		--playlist-items-bg: #e8e8e8;
+		--playlist-items-bg-alt: #f5f5f5;
+	}
+
+
+	html[dark],
+	[dark] {
+		color-scheme: dark;
 		/*var(--yt-spec-base-background); /*#0f0f0f*/
 		--bg-1-100: #1c1c1c;
 		--bg-1-200: #141414;
@@ -29,33 +55,51 @@
 		--search-bg: #ffffff1f;
 		--gray: #272727;
 		/* moved from search-bg */
-		--blur-30: blur(60px);
-		/* Blur for UI elements */
+		--blur-primary-bg: rgba(13, 13, 13, .77);
+		--shadow-popup-renderer: 0 4px 32px 0 rgba(13, 13, 13, .77);
+		--search-item-hover: #ffffff0f;
+		--playlist-panel-bg: #0c0c0c;
+		--playlist-items-bg: #181818;
 	}
-
-	html[dark],
-	[dark] {
-		color-scheme: dark;
+	if (DisableSecondaryColumn==1) {
+		#secondary, #items.ytd-watch-next-secondary-results-renderer {
+			display: none!important;
+		}
 	}
-
+	if (Enablepip==1) {
+		button.ytp-pip-button.ytp-button {
+		display: inline-block !important;
+	}
+	
+	}
 	if (VideoInfoStyle==0) {
 		#below {
 			background-color: unset!important;
 			padding: 0!important;
 		}
+
 		ytd-item-section-renderer.ytd-watch-next-secondary-results-renderer {
 			background-color: transparent!important;
 			padding: 0!important;
-	}
+		}
 
+		.header.ytd-playlist-panel-renderer {
+			background-color: var(--playlist-panel-bg-alt)!important;
+		}
+
+		.playlist-items.ytd-playlist-panel-renderer {
+			background-color: var(--playlist-items-bg-alt)!important;
+		}
 	}
 
 	if (Blur==1) {
 		ytd-multi-page-menu-renderer[menu-style=multi-page-menu-style-type-system],
 		ytd-multi-page-menu-renderer.style-scope.ytd-popup-container,
-		#contentContainer[swipe-open][opened]:not([persistent]), div#ytp-id-18, div#watch-while-engagement-panel {
+		#contentContainer[swipe-open][opened]:not([persistent]),
+		div#ytp-id-18,
+		div#watch-while-engagement-panel {
 			backdrop-filter: var(--blur-30) contrast(0.9) !important;
-			background: rgba(13, 13, 13, .77) !important;
+			background: var(--blur-primary-bg) !important;
 			box-shadow: 0 0 24px 12px var(--paper-dialog-shadow-color, rgba(0, 0, 0, 0.15));
 		}
 
@@ -126,12 +170,12 @@
 	}
 
 	.header.ytd-playlist-panel-renderer {
-		background-color: #0c0c0c;
+		background-color: var(--playlist-panel-bg);
 		border-radius: 8px 8px 0 0;
 	}
 
 	.playlist-items.ytd-playlist-panel-renderer {
-		background-color: #181818;
+		background-color: var(--playlist-items-bg);
 		border-radius: 0 0 8px 8px;
 	}
 
@@ -143,7 +187,7 @@
 	ytd-menu-popup-renderer {
 		background: var(--gray);
 		border-radius: var(--border-radius);
-		box-shadow: 0 4px 32px 0 rgb(0 0 0 / 44%);
+		box-shadow: var(--shadow-popup-renderer);
 	}
 
 	#button-container.ytd-about-channel-renderer {
@@ -207,16 +251,16 @@
 	}
 
 	.sbsb_d {
-		background: #ffffff0f !important;
+		background: var(--search-item-hover) !important;
 	}
 
 	.gsfs {
-		fill: #fff;
-		color: #fff !important;
+		fill: var(--yt-spec-text-primary);
+		color: var(--yt-spec-text-primary) !important;
 	}
 
 	ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] #text.ytd-thumbnail-overlay-time-status-renderer {
-		color: #fff !important;
+		color: var(--yt-spec-text-primary) !important;
 	}
 
 	#search {
@@ -387,8 +431,9 @@ ytd-menu-service-item-renderer.style-scope.ytd-menu-popup-renderer[is-selected] 
 }
 
 yt-report-form-modal-renderer[dialog][dialog][dialog] {
-	background: none; 
+	background: none;
 }
+
 ytd-engagement-panel-title-header-renderer[shorts-panel] #header.ytd-engagement-panel-title-header-renderer {
 	margin: 0; // fix margin for shorts comments
 }
