@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.0
+@version      1.5.1
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -14,6 +14,7 @@
 @var checkbox fakepremium "Fake Premium" 0
 @var checkbox Enablepip "Enable hidden PiP" 0
 @var checkbox DisableSecondaryColumn "Zen mode (Video Player only)" 0
+@var checkbox DisableIVbranding "Hide channel branding" 0
 
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
@@ -34,6 +35,7 @@
 		--gray: #272727;
 		/* moved from search-bg */
 		--blur-primary-bg: rgba(255, 255, 255, .9);
+		--blur-secondary-bg: rgba(0, 0, 0, .5);
 		--shadow-popup-renderer: 0 4px 32px 0 rgba(89, 89, 89, .44);
 		--search-item-hover: #0000000f;
 		--playlist-panel-bg: #e8e8e8;
@@ -61,17 +63,29 @@
 		--playlist-panel-bg: #0c0c0c;
 		--playlist-items-bg: #181818;
 	}
+	
+	
+	if (DisableIVbranding==1) {
+		.iv-branding {
+			display: none;
+		}
+	}
+	
+	
 	if (DisableSecondaryColumn==1) {
 		#secondary, #items.ytd-watch-next-secondary-results-renderer {
 			display: none!important;
 		}
 	}
+	
+	
 	if (Enablepip==1) {
 		button.ytp-pip-button.ytp-button {
 		display: inline-block !important;
-	}
+	}}
 	
-	}
+	
+	
 	if (VideoInfoStyle==0) {
 		#below {
 			background-color: unset!important;
@@ -90,8 +104,11 @@
 		.playlist-items.ytd-playlist-panel-renderer {
 			background-color: var(--playlist-items-bg-alt)!important;
 		}
+
 	}
 
+	
+	
 	if (Blur==1) {
 		ytd-multi-page-menu-renderer[menu-style=multi-page-menu-style-type-system],
 		ytd-multi-page-menu-renderer.style-scope.ytd-popup-container,
@@ -102,13 +119,27 @@
 			background: var(--blur-primary-bg) !important;
 			box-shadow: 0 0 24px 12px var(--paper-dialog-shadow-color, rgba(0, 0, 0, 0.15));
 		}
+		div#ytp-id-18 {
+			background: var(--blur-secondary-bg) !important; // video settings popup
+		}
+		ytd-voice-search-dialog-renderer[dialog] {
+			background-color: transparent!important; 
+			
+		}
 
-		html[dark] .sbsb_a,
+		html[dark] .gstl_50.sbdd_a,
 		ytd-menu-popup-renderer,
 		ytd-menu-popup-renderer.style-scope.ytd-popup-container,
 		tp-yt-paper-dialog {
 			background: var(--bg-90-gray) !important;
 			backdrop-filter: var(--blur-30) saturate(2.5) contrast(1.5);
+		}
+		.sbsb_a {
+			background: none!important;
+		}
+		.gstl_50.sbdd_a {
+			overflow: hidden;
+			border-radius: 10px;
 		}
 
 		#guide-content.ytd-app {
@@ -119,6 +150,8 @@
 			box-shadow: none;
 		}
 	}
+	
+	
 
 	if (RedesignSearchResults==1) {
 		.sbsb_a {
@@ -136,6 +169,17 @@
 		}
 	}
 
+	
+	ytd-compact-video-renderer.ytd-item-section-renderer:first-of-type {
+			margin-top: 0;
+		} // video section first, fix perfect borders
+	ytd-voice-search-dialog-renderer[dialog] {
+		margin: 0!important;
+	}
+	tp-yt-paper-dialog:has(ytd-voice-search-dialog-renderer) {
+		border-radius: 10px;
+		overflow:hidden;
+	}
 	ytd-watch-flexy[rounded-info-panel] #clarify-box.ytd-watch-flexy,
 	ytd-watch-metadata.ytd-watch-flexy {
 		margin-top: 0 !important;
