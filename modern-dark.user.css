@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.1
+@version      1.5.2
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -15,6 +15,7 @@
 @var checkbox Enablepip "Enable hidden PiP" 0
 @var checkbox DisableSecondaryColumn "Zen mode (Video Player only)" 0
 @var checkbox DisableIVbranding "Hide channel branding" 0
+@var checkbox disableprogressgradient "Disable the red-to-pink progress bar" 1
 
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
@@ -84,7 +85,11 @@
 		display: inline-block !important;
 	}}
 	
-	
+	if (disableprogressgradient==1) {
+		.ytp-cairo-refresh-signature-moments .ytp-play-progress {
+	background: var(--yt-spec-static-brand-red,#f03);
+}
+	}
 	
 	if (VideoInfoStyle==0) {
 		#below {
