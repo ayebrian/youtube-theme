@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.2
+@version      1.5.3
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -16,6 +16,8 @@
 @var checkbox DisableSecondaryColumn "Zen mode (Video Player only)" 0
 @var checkbox DisableIVbranding "Hide channel branding" 0
 @var checkbox disableprogressgradient "Disable the red-to-pink progress bar" 1
+@var checkbox enableaccent "Use custom accent color" 0
+@var color custom-accent "Select:" "#ef1313"
 
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
@@ -86,10 +88,24 @@
 	}}
 	
 	if (disableprogressgradient==1) {
-		.ytp-cairo-refresh-signature-moments .ytp-play-progress {
-	background: var(--yt-spec-static-brand-red,#f03);
+		.ytp-cairo-refresh-signature-moments .ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer, .ytp-cairo-refresh .ytp-swatch-background-color {
+	background: #ef1313;
 }
 	}
+
+	
+	if (enableaccent==1) {
+	.ytp-cairo-refresh-signature-moments .ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer, .ytp-cairo-refresh .ytp-swatch-background-color, .yt-spec-icon-badge-shape--type-notification-refresh .yt-spec-icon-badge-shape__badge, .ytp-cairo-refresh .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox, .ytp-cairo-refresh .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+			background custom-accent;
+		}
+		.ytp-cairo-refresh .ytp-settings-button.ytp-4k-quality-badge::after {
+			background-color custom-accent; // otherwise no text
+		}
+		 #title-container > h2.style-scope.ytd-reel-shelf-renderer > yt-icon#icon > span.yt-icon-shape.style-scope.yt-icon.yt-spec-icon-shape > div > svg > path:first-of-type {
+			 fill custom-accent; // shorts icon recolor
+		 }
+	}
+		
 	
 	if (VideoInfoStyle==0) {
 		#below {
