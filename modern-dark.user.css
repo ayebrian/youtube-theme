@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.3
+@version      1.5.4
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -143,7 +143,7 @@
 		div#ytp-id-18 {
 			background: var(--blur-secondary-bg) !important; // video settings popup
 		}
-		ytd-voice-search-dialog-renderer[dialog] {
+		ytd-voice-search-dialog-renderer[dialog], ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer, #header.ytd-engagement-panel-title-header-renderer {
 			background-color: transparent!important; 
 			
 		}
@@ -151,7 +151,7 @@
 		html[dark] .gstl_50.sbdd_a,
 		ytd-menu-popup-renderer,
 		ytd-menu-popup-renderer.style-scope.ytd-popup-container,
-		tp-yt-paper-dialog {
+		tp-yt-paper-dialog, .yt-contextual-sheet-layout-wiz {
 			background: var(--bg-90-gray) !important;
 			backdrop-filter: var(--blur-30) saturate(2.5) contrast(1.5);
 		}
@@ -501,4 +501,8 @@ yt-report-form-modal-renderer[dialog][dialog][dialog] {
 
 ytd-engagement-panel-title-header-renderer[shorts-panel] #header.ytd-engagement-panel-title-header-renderer {
 	margin: 0; // fix margin for shorts comments
+}
+
+ytd-engagement-panel-section-list-renderer.style-scope.ytd-popup-container {
+	margin-bottom: 0; // fix about popup
 }
