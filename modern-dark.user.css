@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.4
+@version      1.5.5
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -45,6 +45,7 @@
 		--playlist-panel-bg-alt: #f5f5f5;
 		--playlist-items-bg: #e8e8e8;
 		--playlist-items-bg-alt: #f5f5f5;
+		--video-preview-radius: 12px;
 	}
 
 
@@ -66,47 +67,50 @@
 		--playlist-panel-bg: #0c0c0c;
 		--playlist-items-bg: #181818;
 	}
-	
-	
+
+
 	if (DisableIVbranding==1) {
 		.iv-branding {
 			display: none;
 		}
 	}
-	
-	
+
+
 	if (DisableSecondaryColumn==1) {
-		#secondary, #items.ytd-watch-next-secondary-results-renderer {
+		#secondary,
+		#items.ytd-watch-next-secondary-results-renderer {
 			display: none!important;
 		}
 	}
-	
-	
+
+
 	if (Enablepip==1) {
 		button.ytp-pip-button.ytp-button {
-		display: inline-block !important;
-	}}
-	
-	if (disableprogressgradient==1) {
-		.ytp-cairo-refresh-signature-moments .ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer, .ytp-cairo-refresh .ytp-swatch-background-color {
-	background: #ef1313;
-}
+			display: inline-block !important;
+		}
 	}
 
-	
+	if (disableprogressgradient==1) {
+		ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer,
+		#progress.ytd-thumbnail-overlay-resume-playback-renderer {
+			background: #ef1313;
+		}
+	}
+
+
 	if (enableaccent==1) {
-	.ytp-cairo-refresh-signature-moments .ytp-play-progress, ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer, .ytp-cairo-refresh .ytp-swatch-background-color, .yt-spec-icon-badge-shape--type-notification-refresh .yt-spec-icon-badge-shape__badge, .ytp-cairo-refresh .ytp-menuitem[aria-checked=true] .ytp-menuitem-toggle-checkbox, .ytp-cairo-refresh .ytp-chrome-controls .ytp-button[aria-pressed]::after {
+
+		ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer,
+		.yt-spec-icon-badge-shape--type-notification-refresh .yt-spec-icon-badge-shape__badge {
 			background custom-accent;
 		}
-		.ytp-cairo-refresh .ytp-settings-button.ytp-4k-quality-badge::after {
-			background-color custom-accent; // otherwise no text
+
+		#title-container > h2.style-scope.ytd-reel-shelf-renderer > yt-icon#icon > span.yt-icon-shape.style-scope.yt-icon.yt-spec-icon-shape > div > svg > path:first-of-type {
+			fill custom-accent; // shorts icon recolor
 		}
-		 #title-container > h2.style-scope.ytd-reel-shelf-renderer > yt-icon#icon > span.yt-icon-shape.style-scope.yt-icon.yt-spec-icon-shape > div > svg > path:first-of-type {
-			 fill custom-accent; // shorts icon recolor
-		 }
 	}
-		
-	
+
+
 	if (VideoInfoStyle==0) {
 		#below {
 			background-color: unset!important;
@@ -125,42 +129,40 @@
 		.playlist-items.ytd-playlist-panel-renderer {
 			background-color: var(--playlist-items-bg-alt)!important;
 		}
-
 	}
 
-	
-	
+
+
 	if (Blur==1) {
 		ytd-multi-page-menu-renderer[menu-style=multi-page-menu-style-type-system],
 		ytd-multi-page-menu-renderer.style-scope.ytd-popup-container,
 		#contentContainer[swipe-open][opened]:not([persistent]),
 		div#ytp-id-18,
-		div#watch-while-engagement-panel {
+		div#watch-while-engagement-panel,
+		.ytSearchboxComponentSuggestionsContainerDark,
+		.ytSearchboxComponentSuggestionsContainer {
+			// search and other
 			backdrop-filter: var(--blur-30) contrast(0.9) !important;
 			background: var(--blur-primary-bg) !important;
-			box-shadow: 0 0 24px 12px var(--paper-dialog-shadow-color, rgba(0, 0, 0, 0.15));
+			box-shadow: 0 16px 24px 12px var(--paper-dialog-shadow-color, rgba(0, 0, 0, 0.15));
 		}
+
 		div#ytp-id-18 {
 			background: var(--blur-secondary-bg) !important; // video settings popup
 		}
-		ytd-voice-search-dialog-renderer[dialog], ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer, #header.ytd-engagement-panel-title-header-renderer {
-			background-color: transparent!important; 
-			
+
+		ytd-voice-search-dialog-renderer[dialog],
+		ytd-engagement-panel-section-list-renderer[dialog] #content.ytd-engagement-panel-section-list-renderer,
+		#header.ytd-engagement-panel-title-header-renderer {
+			background-color: transparent!important;
 		}
 
-		html[dark] .gstl_50.sbdd_a,
 		ytd-menu-popup-renderer,
 		ytd-menu-popup-renderer.style-scope.ytd-popup-container,
-		tp-yt-paper-dialog, .yt-contextual-sheet-layout-wiz {
+		tp-yt-paper-dialog,
+		.yt-contextual-sheet-layout-wiz {
 			background: var(--bg-90-gray) !important;
 			backdrop-filter: var(--blur-30) saturate(2.5) contrast(1.5);
-		}
-		.sbsb_a {
-			background: none!important;
-		}
-		.gstl_50.sbdd_a {
-			overflow: hidden;
-			border-radius: 10px;
 		}
 
 		#guide-content.ytd-app {
@@ -171,36 +173,48 @@
 			box-shadow: none;
 		}
 	}
-	
-	
+
+
 
 	if (RedesignSearchResults==1) {
-		.sbsb_a {
-			border-radius: 10px;
-			padding: 5px;
+		.ytSearchboxComponentSuggestionsContainer {
+			padding: 10px;
 		}
 
-		ul.sbsb_b {
-			padding: 0;
-		}
-
-		.sbsb_c[dir=ltr] {
-			padding: 0px 7px 0px 12px;
+		.ytSuggestionComponentSuggestion {
+			padding: 0 8px;
 			border-radius: 5px;
 		}
+		// 2025: yt removed the legacy search code, seems codebase is being rewritten
 	}
 
-	
+	div#inline-preview-player,
+	#player-container.ytd-video-preview {
+		background-color: transparent!important; // fix for video preview black bg
+	}
+
+	#thumbnail-container.ytd-video-preview,
+	div#media-container {
+		border-radius: var(--video-preview-radius);
+		overflow: hidden;
+	}
+
+	video.video-stream.html5-main-video {
+		border-radius: var(--video-preview-radius);
+	}
+
 	ytd-compact-video-renderer.ytd-item-section-renderer:first-of-type {
-			margin-top: 0;
-		} // video section first, fix perfect borders
+		margin-top: 0;
+	} // video section first, fix perfect borders
 	ytd-voice-search-dialog-renderer[dialog] {
 		margin: 0!important;
 	}
+
 	tp-yt-paper-dialog:has(ytd-voice-search-dialog-renderer) {
 		border-radius: 10px;
-		overflow:hidden;
+		overflow: hidden;
 	}
+
 	ytd-watch-flexy[rounded-info-panel] #clarify-box.ytd-watch-flexy,
 	ytd-watch-metadata.ytd-watch-flexy {
 		margin-top: 0 !important;
@@ -304,26 +318,6 @@
 		background-color: #000000b3;
 	}
 
-	.sbfl_a {
-		display: none !important;
-	}
-
-	.sbdd_b {
-		border: none !important;
-		background: transparent !important;
-		box-shadow: none !important;
-		-webkit-box-shadow: none !important;
-	}
-
-	.sbsb_d {
-		background: var(--search-item-hover) !important;
-	}
-
-	.gsfs {
-		fill: var(--yt-spec-text-primary);
-		color: var(--yt-spec-text-primary) !important;
-	}
-
 	ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"] #text.ytd-thumbnail-overlay-time-status-renderer {
 		color: var(--yt-spec-text-primary) !important;
 	}
@@ -340,12 +334,14 @@
 		position: relative !important;
 	}
 
-	ytd-searchbox[system-icons] #search-icon-legacy.ytd-searchbox yt-icon.ytd-searchbox {
-		width: 24px !important;
-		height: auto;
+
+	.ytSearchboxComponentDesktop .ytSearchboxComponentClearButton {
+		margin-right: 72px;
+		width: 32px;
+		height: 32px; // clear icon before search
 	}
 
-	#container.ytd-searchbox {
+	.ytSearchboxComponentInputBox {
 		margin-left: 0 !important;
 		background: var(--search-bg) !important;
 		border: none !important;
@@ -354,33 +350,27 @@
 		padding: 10px 10px 10px 25px !important;
 	}
 
-	#search-icon.ytd-searchbox {
+	.ytSearchboxComponentInnerSearchIcon {
+		// hidden left search icon
 		display: none;
-		transition: all ease-in-out 0.2s;
 	}
 
-	ytd-searchbox.ytd-masthead[has-input] #search-icon-legacy.ytd-searchbox {
-		opacity: 1;
-		right: 50px !important;
-		background-color: unset!important;
-		border-radius: 50%;
-		padding: 6px;
-	}
 
-	ytd-searchbox.ytd-masthead[has-focus] #search-icon.ytd-searchbox {
-		opacity: 0;
-	}
 
-	#search-icon-legacy.ytd-searchbox {
-		opacity: 0;
+	.ytSearchboxComponentSearchButton {
+		background-color: transparent;
 		transition: all cubic-bezier(0, 0.79, 0.58, 1) 0.2s;
 		border: none !important;
-		background-color: transparent!important;
-		position: absolute;
-		right: 45px;
-		width: auto;
-		height: auto;
+		width: 38px;
+		border-radius: 51px;
 		padding: 4px;
+		right: 8px;
+		top: 4px;
+		position: absolute;
+	}
+
+	.ytSearchboxComponentSearchButton:hover {
+		background-color: hsla(0, 0%, 100%, .2);
 	}
 
 	#sections.ytd-multi-page-menu-renderer > *.ytd-multi-page-menu-renderer {
@@ -445,10 +435,6 @@
 
 	ytd-backstage-poll-renderer:not([is-image-poll]) .choice-info.ytd-backstage-poll-renderer {
 		border: 1px solid var(--yt-spec-10-percent-layer);
-	}
-
-	iframe.gstl_50.sbdd_c {
-		display: none;
 	}
 
 	/* hide white iframe in search results */
