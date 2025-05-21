@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.5.5
+@version      1.6.0
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -15,9 +15,12 @@
 @var checkbox Enablepip "Enable hidden PiP" 0
 @var checkbox DisableSecondaryColumn "Zen mode (Video Player only)" 0
 @var checkbox DisableIVbranding "Hide channel branding" 0
-@var checkbox disableprogressgradient "Disable the red-to-pink progress bar" 1
+@var checkbox DisableShorts "Hide Shorts & News videos" 0
+@var number VideoPerRow "Amount of videos per row" 4
+@var checkbox DisableProgressGradient "Disable the red-to-pink progress bar" 1
 @var checkbox enableaccent "Use custom accent color" 0
 @var color custom-accent "Select:" "#ef1313"
+
 
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
@@ -83,6 +86,22 @@
 		}
 	}
 
+	#primary ytd-rich-grid-renderer:first-of-type {
+		--ytd-rich-grid-items-per-row: VideoPerRow!important;
+	}
+
+	if (DisableShorts==1) {
+		#contents ytd-rich-section-renderer,
+		ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2) {
+			display: none !important; // Home and Channel
+		}
+
+		ytd-reel-shelf-renderer {
+			display: none !important; // In the right panel next to videoplayer
+		}
+	}
+
+
 
 	if (Enablepip==1) {
 		button.ytp-pip-button.ytp-button {
@@ -90,9 +109,10 @@
 		}
 	}
 
-	if (disableprogressgradient==1) {
+	if (DisableProgressGradient==1) {
 		ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer,
-		#progress.ytd-thumbnail-overlay-resume-playback-renderer {
+		#progress.ytd-thumbnail-overlay-resume-playback-renderer,
+		.ytp-play-progress {
 			background: #ef1313;
 		}
 	}
@@ -101,7 +121,8 @@
 	if (enableaccent==1) {
 
 		ytd-thumbnail-overlay-resume-playback-renderer[enable-refresh-signature-moments-web] #progress.ytd-thumbnail-overlay-resume-playback-renderer,
-		.yt-spec-icon-badge-shape--type-notification-refresh .yt-spec-icon-badge-shape__badge {
+		.yt-spec-icon-badge-shape--type-notification-refresh .yt-spec-icon-badge-shape__badge,
+		.ytp-play-progress {
 			background custom-accent;
 		}
 
@@ -184,13 +205,11 @@
 		.ytSuggestionComponentSuggestion {
 			padding: 0 8px;
 			border-radius: 5px;
-		}
-		// 2025: yt removed the legacy search code, seems codebase is being rewritten
-	}
-
+		} // 2025: yt removed the legacy search code, seems codebase is being rewritten
+	} // VIDEO PREVIEW ROUNDED CORNERS //
 	div#inline-preview-player,
 	#player-container.ytd-video-preview {
-		background-color: transparent!important; // fix for video preview black bg
+		border-radius: var(--video-preview-radius);
 	}
 
 	#thumbnail-container.ytd-video-preview,
@@ -201,8 +220,7 @@
 
 	video.video-stream.html5-main-video {
 		border-radius: var(--video-preview-radius);
-	}
-
+	} // VIDEO PREVIEW ROUNDED CORNERS //
 	ytd-compact-video-renderer.ytd-item-section-renderer:first-of-type {
 		margin-top: 0;
 	} // video section first, fix perfect borders
