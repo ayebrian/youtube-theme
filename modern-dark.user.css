@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube - Modern Dark
 @namespace    ayebrian
-@version      1.6.0
+@version      1.6.1
 @description  A dark theme for YouTube
 @author       ayebrian
 @license      CC BY-NC-ND 4.0
@@ -181,7 +181,7 @@
 		ytd-menu-popup-renderer,
 		ytd-menu-popup-renderer.style-scope.ytd-popup-container,
 		tp-yt-paper-dialog,
-		.yt-contextual-sheet-layout-wiz {
+		.yt-contextual-sheet-layout-wiz,  {
 			background: var(--bg-90-gray) !important;
 			backdrop-filter: var(--blur-30) saturate(2.5) contrast(1.5);
 		}
@@ -192,6 +192,9 @@
 
 		#guide-content.ytd-app {
 			box-shadow: none;
+		}
+		.ytp-delhi-modern .ytp-popup {
+			backdrop-filter: var(--blur-30)!important;
 		}
 	}
 
@@ -205,6 +208,8 @@
 		.ytSuggestionComponentSuggestion {
 			padding: 0 8px;
 			border-radius: 5px;
+			margin: 0;
+			height: 40px!important;
 		} // 2025: yt removed the legacy search code, seems codebase is being rewritten
 	} // VIDEO PREVIEW ROUNDED CORNERS //
 	div#inline-preview-player,
@@ -509,4 +514,8 @@ ytd-engagement-panel-title-header-renderer[shorts-panel] #header.ytd-engagement-
 
 ytd-engagement-panel-section-list-renderer.style-scope.ytd-popup-container {
 	margin-bottom: 0; // fix about popup
+}
+.ytp-delhi-modern .ytp-chrome-controls .ytp-right-controls, .ytp-delhi-modern .ytp-chapter-title.ytp-button, .ytp-delhi-modern.ytp-delhi-horizontal-volume-controls .ytp-volume-area, .ytp-delhi-modern.ytp-delhi-modern-compact-controls .ytp-chrome-controls .ytp-play-button, .ytp-delhi-modern .ytp-time-wrapper:not(.ytp-miniplayer-ui *) {
+	background: #00000080;  
+	/*  better contrast for the new player */
 }
